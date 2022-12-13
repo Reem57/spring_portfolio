@@ -84,6 +84,7 @@ public class Person {
         this.password = password;
         this.name = name;
         this.dob = dob;
+
     }
 
     // A custom getter to return age from dob attribute
@@ -92,6 +93,16 @@ public class Person {
             LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             return Period.between(birthDay, LocalDate.now()).getYears(); }
         return -1;
+    }
+
+    
+
+    public static void main(String[] args) {
+        // Private access modifiers
+        Person mike = new Person("hello@gmail.com", "password", "mike", new Date(0,0,0));
+        System.out.println("Age: " + mike.getAge());
+        System.out.println("Email: " + mike.getEmail());
+        System.out.println("Name: " + mike.getName());
     }
 
 }
